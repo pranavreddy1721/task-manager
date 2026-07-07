@@ -1,0 +1,325 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: #f4f6f8;
+  color: #222;
+}
+
+/* ---------- Auth Pages (Login / Register) ---------- */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 380px;
+}
+
+.logo {
+  font-size: 22px;
+  color: #2b6cb0;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d3d9e0;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #2b6cb0;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 11px;
+  background: #2b6cb0;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: #235a94;
+}
+
+.btn-outline {
+  padding: 9px 16px;
+  background: transparent;
+  border: 1px solid #2b6cb0;
+  color: #2b6cb0;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-outline:hover {
+  background: #2b6cb0;
+  color: #fff;
+}
+
+.switch-auth {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 13px;
+  color: #555;
+}
+
+.switch-auth a {
+  color: #2b6cb0;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.error-msg {
+  color: #c53030;
+  font-size: 13px;
+  margin-bottom: 10px;
+  min-height: 16px;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 16px 32px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  color: #444;
+}
+
+/* ---------- Dashboard ---------- */
+.dashboard {
+  max-width: 800px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.task-form-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 24px;
+}
+
+.task-form-card h2 {
+  font-size: 17px;
+  margin-bottom: 16px;
+  color: #2b6cb0;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.form-actions .btn-primary {
+  width: auto;
+  padding: 10px 24px;
+}
+
+/* ---------- Filters ---------- */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.filters input {
+  flex: 2;
+  min-width: 180px;
+}
+
+.filters select {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* ---------- Task List ---------- */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-card {
+  background: #fff;
+  padding: 16px 18px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  border-left: 4px solid #cbd5e0;
+}
+
+.task-card.priority-High {
+  border-left-color: #e53e3e;
+}
+
+.task-card.priority-Medium {
+  border-left-color: #dd8b1f;
+}
+
+.task-card.priority-Low {
+  border-left-color: #38a169;
+}
+
+.task-card.completed {
+  opacity: 0.6;
+}
+
+.task-card.completed .task-title {
+  text-decoration: line-through;
+}
+
+.task-main {
+  flex: 1;
+}
+
+.task-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.task-desc {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.task-meta {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+  color: #888;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge.High {
+  background: #fed7d7;
+  color: #c53030;
+}
+
+.badge.Medium {
+  background: #feebc8;
+  color: #b7791f;
+}
+
+.badge.Low {
+  background: #c6f6d5;
+  color: #2f855a;
+}
+
+.badge.Pending {
+  background: #e2e8f0;
+  color: #4a5568;
+}
+
+.badge.Completed {
+  background: #bee3f8;
+  color: #2b6cb0;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  border: none;
+  background: #f1f4f8;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.icon-btn:hover {
+  background: #e2e8f0;
+}
+
+.icon-btn.delete:hover {
+  background: #fed7d7;
+}
+
+.empty-state {
+  text-align: center;
+  color: #888;
+  padding: 30px;
+  background: #fff;
+  border-radius: 8px;
+}
