@@ -1,5 +1,5 @@
 // Change this if your backend runs on a different port/URL
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "https://task-manager-api-ie3z.onrender.com/api";
 
 // Generic fetch wrapper that automatically attaches the JWT token (if present)
 // and parses JSON responses. Throws an error with the server's message on failure.
