@@ -7,11 +7,33 @@ const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
 const errorMsg = document.getElementById("errorMsg");
 
+// ---------- PASSWORD SHOW/HIDE TOGGLE ----------
+const togglePassword = document.getElementById("togglePassword");
+const passwordInput = document.getElementById("password");
+
+if (togglePassword && passwordInput) {
+  togglePassword.addEventListener("click", () => {
+    const isHidden = passwordInput.type === "password";
+    passwordInput.type = isHidden ? "text" : "password";
+
+    togglePassword.querySelector(".eye-icon").style.display = isHidden ? "none" : "block";
+    togglePassword.querySelector(".eye-off-icon").style.display = isHidden ? "block" : "none";
+    togglePassword.setAttribute("aria-label", isHidden ? "Hide password" : "Show password");
+  });
+}
+
+// Shows a message in the shared message area, styled as error or success
+function showMessage(text, type = "error") {
+  errorMsg.textContent = text;
+  errorMsg.classList.remove("error-msg", "success-msg");
+  errorMsg.classList.add(type === "success" ? "success-msg" : "error-msg");
+}
+
 // ---------- LOGIN ----------
 if (loginForm) {
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    errorMsg.textContent = "";
+    showMessage("", "error");
 
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
@@ -23,9 +45,15 @@ if (loginForm) {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify({ name: data.name, email: data.email }));
 
-      window.location.href = "dashboard.html";
+      showMessage("Login successful! Redirecting...", "success");
+
+      // Brief pause so the success message is actually visible before navigating away
+      setTimeout(() => {
+        window.location.href = "dashboard.html";
+      }, 700);
     } catch (error) {
-      errorMsg.textContent = error.message;
+      // Backend returns a generic message for security (doesn't reveal which field was wrong)
+      showMessage("Incorrect email or password. Please try again.", "error");
     }
   });
 }
@@ -34,7 +62,7 @@ if (loginForm) {
 if (registerForm) {
   registerForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    errorMsg.textContent = "";
+    showMessage("", "error");
 
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -46,9 +74,13 @@ if (registerForm) {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify({ name: data.name, email: data.email }));
 
-      window.location.href = "dashboard.html";
+      showMessage("Account created! Redirecting...", "success");
+
+      setTimeout(() => {
+        window.location.href = "dashboard.html";
+      }, 700);
     } catch (error) {
-      errorMsg.textContent = error.message;
+      showMessage(error.message, "error");
     }
   });
 }

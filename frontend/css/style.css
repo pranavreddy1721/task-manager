@@ -131,6 +131,50 @@ textarea:focus {
   min-height: 16px;
 }
 
+.success-msg {
+  color: #2f855a;
+  font-size: 13px;
+  margin-bottom: 10px;
+  min-height: 16px;
+}
+
+/* ---------- Password show/hide toggle ---------- */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 42px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  color: #888;
+}
+
+.toggle-password:hover {
+  color: #2b6cb0;
+}
+
+.toggle-password svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* ---------- Navbar ---------- */
 .navbar {
   display: flex;
@@ -322,4 +366,83 @@ textarea:focus {
   padding: 30px;
   background: #fff;
   border-radius: 8px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 640px) {
+  .auth-card {
+    padding: 28px 22px;
+    max-width: 100%;
+  }
+
+  .navbar {
+    padding: 14px 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nav-right {
+    font-size: 13px;
+    gap: 10px;
+  }
+
+  .dashboard {
+    margin: 16px auto;
+    padding: 0 12px;
+  }
+
+  .task-form-card {
+    padding: 18px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn-primary,
+  .form-actions .btn-outline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .filters input,
+  .filters select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .task-card {
+    flex-direction: column;
+  }
+
+  .task-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .icon-btn {
+    flex: 1;
+    min-width: 80px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .logo {
+    font-size: 19px;
+  }
+
+  .task-title {
+    font-size: 14px;
+  }
 }
